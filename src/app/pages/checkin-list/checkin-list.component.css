@@ -1,0 +1,167 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .section__search {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #303030;
+  }
+  
+  .refresh__box {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+  
+    text-align: center;
+  }
+  
+  .refresh__box img {
+    position: relative;
+    vertical-align: middle;
+    padding: 15px 0;
+  }
+  
+  .search__box {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  
+    width: 80%;
+  
+    text-align: left;
+  }
+  
+  .search__box  label,
+  .search__box img {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px 0;
+    margin-left: 10px;
+  }
+  
+  label {
+    font-size: 20px;
+    color: white;
+  }
+  
+  .section__list {
+    position: relative;
+    left: 2%;
+    margin-top: 10px;
+    width: 96%;
+    height: 520px;
+    text-align: center;
+  }
+  
+  .header-trip {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  
+    color: white;
+    font-size: 18px;
+    text-align: center;
+  
+    background: #484646;
+  }
+  
+  .header-trip .trip-date {
+    position: relative;
+    width: 75%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .header-trip .trip-logout {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .detail-trip {
+    margin-top: 10px;
+  }
+  
+  .trip-checkin {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  
+    text-align: left;
+    background-image: linear-gradient(to bottom, #eeeeee, #bbbbbb);
+    border: none;
+  }
+  
+  .trip-checkin .checkin-checkinname {
+    position: relative;
+    display: inline-block;
+    width: 63%;
+    height: 40px;
+    margin-left: 2%;
+    vertical-align: top;
+  }
+  
+  .trip-checkin .checkin-link {
+    position: relative;
+    display: inline-block;
+    width: 35%;
+    height: 40px;
+  
+    text-align: right;
+  }
+
+  .trip-checkin .checkin-link img {
+    margin-right: 25px;
+  }
+
+  .trip-checkin .checkin-link span {
+    font-size: 14px;
+    display: block;
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+  
+  .trip-checkin .checkin-checkinname span {
+    color: black;
+    word-wrap: break-word;
+  }
+  
+  .section__navigation {
+    position: relative;
+    left: 2%;
+    margin-top: 10px;
+    width: 96%;
+  }
+  
+  .button {
+    position: relative;
+    width: 170px;
+    padding: 15px 50px;
+  
+    color: white;
+    text-align: center;
+  
+    background: #484646;
+    border: none;
+  }
+  
+  .button-location {
+    float: left;
+  }
+  
+  .button-checkin {
+    float: right;
+  }
+  
+  img:hover {
+    cursor: pointer;
+  }
+  

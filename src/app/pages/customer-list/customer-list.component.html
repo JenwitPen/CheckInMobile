@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="section__search">
+    <div class="refresh__box">
+      <img src="assets/images/refresh-icon.png" alt="" width="30" height="30" (click)="GetCustomerList()">
+    </div>
+
+    <div class="search__box">
+      <img src="assets/images/search-icon.png" alt="" width="20" height="20">
+      <input type="text" class="text-search" placeholder="Search..." maxlength="100" [(ngModel)]="wording">
+    </div>
+  </div>
+
+  <div class="section__list">
+    <div class="header-trip">
+      <div class="trip-date">
+        <span>{{data.length > 0? data[0].tripName : ""}}</span>
+      </div>
+      <div class="trip-logout">
+        <img src="assets/images/logout-icon.png" alt="" width="40" height="40" (click)="Logout()">
+      </div>
+    </div>
+
+    <div class="detail-trip">
+      <div class="trip-customer" *ngFor="let item of data | myfilter: wording">
+        <div class="customer-cardname">
+          <span>{{item.cardName}}</span>
+        </div>
+        <div class="customer-link">
+          <img src="assets/images/checkin-icon.png" alt="" width="40" height="40" (click)="GotoLocation()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section__navigation">
+    <div class="navigation__box">
+      <input type="button" class="button button-location" value="สถานที่อื่นๆ" (click)="GotoLocation()" />
+      <input type="button" class="button button-checkin" value="รายการเช็คอิน" (click)="GotoCheckinList()" />
+    </div>
+  </div>
+</div>

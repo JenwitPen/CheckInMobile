@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="section__search">
+    <div class="search__box">
+      <label>รายการเช็คอิน</label>
+    </div>
+    <div class="refresh__box">
+      <img src="assets/images/refresh-icon.png" alt="" width="30" height="30" (click)="GetCheckInList()">
+    </div>
+  </div>
+
+  <div class="section__list">
+    <div class="detail-trip">
+      <div class="trip-checkin" *ngFor="let item of data;  let i = index">
+        <div class="checkin-checkinname">
+          <span>{{i + 1}}: {{item.checkInName}}</span>
+        </div>
+        <div class="checkin-link">
+          <img src="assets/images/calendar-icon.png" alt="" width="40" height="40" (click)="GotoActivity()">
+          <span>{{item.checkInDate.replace('T',' ')}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
