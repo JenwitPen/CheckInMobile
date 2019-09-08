@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="section__search">
+    <div class="search__box">
+      <label>รายการกิจกรรม</label>
+    </div>
+    <div class="refresh__box">
+      <img src="assets/images/refresh-icon.png" alt="" width="30" height="30" (click)="GetActivityList()">
+    </div>
+  </div>
+
+  <div class="section__list">
+    <div class="header-trip">
+      <div class="trip-date">
+        <span>Test</span>
+      </div>
+    </div>
+
+    <div class="detail-trip">
+      <div class="trip-customer" *ngFor="let item of data;  let i = index">
+        <div class="customer-cardname">
+          <span>{{i + 1}}: {{item.activityName}}</span>
+        </div>
+        <div class="customer-link">
+            <span>{{item.createDate.replace('T',' ')}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section__navigation">
+    <div class="navigation__box">
+      <input type="button" class="button button-add" value="เพิ่มกิจกรรม" />
+    </div>
+  </div>
+</div>
