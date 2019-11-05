@@ -35,7 +35,7 @@
   <div class="section__navigation">
     <div class="navigation__box">
       <input type="button" class="button button-location" value="สถานที่อื่นๆ" (click)="GotoLocation()" />
-      <input type="button" class="button button-checkin" value="รายการเช็คอิน" (click)="GotoCheckinList()" />
+      <input type="button" class="button button-checkin" value="รายการเช็คอิน" (click)="GotoCheckinList(data.length > 0? data[0].tripEaID : '')" />
     </div>
   </div>
 </div>

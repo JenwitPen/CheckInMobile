@@ -15,7 +15,7 @@
           <span>{{i + 1}}: {{item.checkInName}}</span>
         </div>
         <div class="checkin-link">
-          <img src="assets/images/calendar-icon.png" alt="" width="40" height="40" (click)="GotoActivity()">
+          <img src="assets/images/calendar-icon.png" alt="" width="40" height="40" (click)="GotoActivity(item.checkInID, item.checkInName)">
           <span>{{item.checkInDate.replace('T',' ')}}</span>
         </div>
       </div>

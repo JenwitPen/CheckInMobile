@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { CheckInService } from 'src/app/services/checkin.service';
 import { CheckInResponseBody } from './../../services/interface/CheckInResponseBody';
 
@@ -9,35 +10,39 @@ import { CheckInResponseBody } from './../../services/interface/CheckInResponseB
   styleUrls: ['./checkin-list.component.css']
 })
 export class CheckinListComponent implements OnInit {
-
   data: CheckInResponseBody[] = [];
 
-  constructor(private router: Router, private checkinService: CheckInService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private checkinService: CheckInService) { }
 
   ngOnInit() {
     this.GetCheckInList();
   }
 
   GetCheckInList() {
-    let eaid = localStorage.getItem("eaid");
+    let triped = "";
 
-    this.checkinService.Get("1970").subscribe(
+    this.route
+      .queryParams
+      .subscribe(params => {
+        triped = params['TripEAID'] || 0;
+      });
+
+    this.checkinService.GetSelectCheckinList(triped).subscribe(
       jsonObject => {
         this.data = <CheckInResponseBody[]>jsonObject;
+        console.log("Loading data Completed.");
       },
       error => {
-        this.data = [{
-          checkInID: "126157",
-          checkInName: "กลับที่พัก",
-          checkInDate: new Date(),
-          cardCode: "0",
-          checkInType: "1"
-        }];
+        this.data = [];
+        console.log("Data not found !");
       }
     );
   }
 
-  GotoActivity() {
-    return this.router.navigateByUrl("/activitylist");
+  GotoActivity(id: string, name: string) {
+    return this.router.navigate(['activitylist'], { queryParams: { checkInID: id , checkInName: name} });
   }
 }

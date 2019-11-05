@@ -7,7 +7,8 @@ import { environment } from '../../environments/environment';
 })
 
 export class CustomerService {
-    private readonly CustomerList_URL = environment.baseurl + "customer/selectCustomerList/";
+    private readonly SelectCustomerList_URL = environment.baseurl + "customer/selectCustomerList/";
+    private readonly SelectCustomerDetail_URL = environment.baseurl + "customer/selectCustomerDetail/";
 
     private httpOptions = {
         headers: new HttpHeaders({
@@ -18,8 +19,11 @@ export class CustomerService {
 
     constructor(private http: HttpClient) { }
 
-    public Get(eaid: string) {
+    public GetSelectCustomerList(eaid: string) {
+        return this.http.get(this.SelectCustomerList_URL + eaid, this.httpOptions);
+    }
 
-        return this.http.get(this.CustomerList_URL + eaid, this.httpOptions);
+    public GetSelectCustomerDetail(cardcode: string) {
+        return this.http.get(this.SelectCustomerDetail_URL + cardcode, this.httpOptions);
     }
 }

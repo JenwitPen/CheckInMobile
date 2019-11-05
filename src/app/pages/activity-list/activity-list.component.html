@@ -11,7 +11,7 @@
   <div class="section__list">
     <div class="header-trip">
       <div class="trip-date">
-        <span>Test</span>
+        <span>{{checkinname}}</span>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
           <span>{{i + 1}}: {{item.activityName}}</span>
         </div>
         <div class="customer-link">
-            <span>{{item.createDate.replace('T',' ')}}</span>
+          <span>{{item.createDate.replace('T',' ')}}</span>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
 
   <div class="section__navigation">
     <div class="navigation__box">
-      <input type="button" class="button button-add" value="เพิ่มกิจกรรม" />
+      <input type="button" class="button button-add" value="เพิ่มกิจกรรม" (click)="GotoActicityDetail()" />
     </div>
   </div>
 </div>

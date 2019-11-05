@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { ActivityService } from './../../services/activity.service';
 import { ActivityResponseBody } from './../../services/interface/ActivityResponseBody';
 
@@ -9,38 +10,39 @@ import { ActivityResponseBody } from './../../services/interface/ActivityRespons
   styleUrls: ['./activity-list.component.css']
 })
 export class ActivityListComponent implements OnInit {
+  checkinname: string = "Test";
   data: ActivityResponseBody[] = [];
 
-  constructor(private router: Router, private activityService: ActivityService) { }
+  constructor(
+    private route: ActivatedRoute, private router: Router, private activityService: ActivityService) { }
 
   ngOnInit() {
     this.GetActivityList();
   }
 
   GetActivityList() {
-    let eaid = localStorage.getItem("eaid");
+    let checkinId = "";
 
-    this.activityService.Get("126157").subscribe(
+    this.route
+      .queryParams
+      .subscribe(params => {
+        checkinId = params['checkInID'] || 0;
+        this.checkinname = params['checkInName'];
+      });
+
+    this.activityService.GetselectCheckinActivity(checkinId).subscribe(
       jsonObject => {
         this.data = <ActivityResponseBody[]>jsonObject;
+        console.log("Loading data Completed.");
       },
       error => {
-        this.data = [{
-          activityId: "11",
-          activityName: "อื่นๆ",
-          checkInId: "126157",
-          createDate: "2019-08-07T18:08:12"
-        }];
+        this.data = [];
+        console.log("Data not found !");
       }
     );
   }
 
-  Logout() {
-    localStorage.clear();
-    return this.router.navigateByUrl("/");
-  }
-
-  GotoLocation() {
-    return this.router.navigateByUrl("/");
+  GotoActicityDetail() {
+    return this.router.navigateByUrl("/activitydetail");
   }
 }

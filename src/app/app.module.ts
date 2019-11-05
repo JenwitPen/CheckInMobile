@@ -10,11 +10,11 @@ import { LoginBoxComponent } from './components/login-box/login-box.component';
 //Pages.
 import { SplashScreenComponent } from './pages/splash-screen/splash-screen.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { LocationComponent } from './pages/location/location.component';
 import { CheckinDetailComponent } from './pages/checkin-detail/checkin-detail.component';
 import { CheckinListComponent } from './pages/checkin-list/checkin-list.component';
 import { ActivityListComponent } from './pages/activity-list/activity-list.component';
-import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { ActivityDetailComponent } from './pages/activity-detail/activity-detail.component';
 
 //Services.
@@ -31,7 +31,9 @@ const appRoutes: Routes = [
   { path: 'customerlist', component: CustomerListComponent },
   { path: 'checkinlocation', component: LocationComponent },
   { path: 'checkinlist', component: CheckinListComponent },
+  { path: 'checkindetail', component: CheckinDetailComponent },
   { path: 'activitylist', component: ActivityListComponent },
+  { path: 'activitydetail', component: ActivityDetailComponent },
 ];
 
 @NgModule({

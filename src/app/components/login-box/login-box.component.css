@@ -33,9 +33,9 @@ input[type='password'] {
 .button-save {
   position: relative;
   top: 10px;
-  left: 1%;
+  left: 2%;
 
-  width: 98%;
+  width: 96%;
 
   font-size: 20px;
   color: white;

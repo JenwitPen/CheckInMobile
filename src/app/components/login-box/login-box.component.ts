@@ -27,8 +27,11 @@ export class LoginBoxComponent implements OnInit {
           localStorage.clear();
           localStorage.setItem("eaid", jsonObject["eaid"]);
           localStorage.setItem("userID", jsonObject["userID"]);
-          localStorage.setItem("username", this.Username);
-          localStorage.setItem("name", jsonObject["name"]);
+          localStorage.setItem("tripID", jsonObject["tripID"]);
+          localStorage.setItem("tripEaID", jsonObject["tripEaID"]);
+          localStorage.setItem("type", jsonObject["type"]);
+          localStorage.setItem("regionID", jsonObject["regionID"]);
+          
           return this.router.navigateByUrl("/customerlist");
         },
         error => {

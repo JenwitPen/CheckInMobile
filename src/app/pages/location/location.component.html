@@ -1,3 +1,28 @@
-<p>
-  location works!
-</p>
+<div class="wrapper">
+  <div class="section__list">
+    <div class="header-location">
+        <img src="assets/images/location-icon.png" alt="" width="150" height="150">
+        <p>พิกัด : {{location}}</p>
+        <input type="button" class="button button-location" value="สถานที่ปัจจุบัน" (click)="getGeoLocation()" />
+    </div>
+
+    <div class="detail-location">
+      <p class="location-remark">หมายเหตุ : สถานที่ปัจจุบันที่แสดงคือพิกัดที่ผู้ใช้งาน Check-in Application อยู่ ณ ปัจจุบัน</p>
+      <p></p>
+      
+      <p class="location-title">คำแนะนำในการหาพิกัดเพื่อ Check-in</p>
+      <ul>
+        <li>1. เดินออกไปนอกอาคารหรือสถานที่อับสัญญาณแล้วทำการ Check-in อีกครั้ง</li>
+        <li>2. เปิด-ปิด Application ใหม่</li>
+        <li>3. เปิด-ปิด SmartPhone หรือ Tabblet</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section__navigation">
+    <div class="navigation__box">
+      <input type="button" class="button button-checkin" value="CHECK IN" [hidden]="disable" (click)="GotoCheckin()" />
+      <input type="button" class="button button-checkon" value="CHECK IN" [hidden]="!disable" />
+    </div>
+  </div>
+</div>

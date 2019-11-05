@@ -1,3 +1,54 @@
-<p>
-  activity-detail works!
-</p>
+<div class="wrapper">
+  <div class="section__search">
+    <div class="search__box">
+      <label>รายละเอียดกิจกรรม</label>
+    </div>
+  </div>
+
+  <div class="section__list">
+    <div class="row">
+      <label class="important-text">*กิจกรรม : </label>
+      <select (change)="SelectActivityChange($event.target.value)">
+        <option *ngFor="let item of activityList" value="{{item.activityID}}">{{item.activityName}}</option>
+      </select>
+    </div>
+    <div class="row" [hidden]="!subjectShow">
+      <label class="important-text">*กลุ่มสาระ : </label>
+      <select>
+        <option *ngFor="let item of subjectList" value="{{item.activityID}}">{{item.activityName}}</option>
+      </select>
+    </div>
+    <div class="row" [hidden]="!activityShow">
+      <label class="important-text">*กิจกรรมย่อย : </label>
+      <select value="subactivityId" (change)="SelectSubActivityChange($event.target.value)">
+        <option *ngFor="let item of activitysubList" [attr.selected]="item.flagDefault == true? 'selected' : null"  [value]="item.subActivityID">{{item.subActivityName}}</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>ผู้ติดต่อ &nbsp;&nbsp;: </label>
+      <input type="text" [(ngModel)]="contact">
+    </div>
+    <div class="row">
+      <label>ตำแหน่ง : </label>
+      <input type="text" [(ngModel)]="position">
+    </div>
+    <div class="row">
+      <label>E-mail &nbsp;&nbsp;&nbsp;: </label>
+      <input type="text" [(ngModel)]="email">
+    </div>
+    <div class="row">
+      <label>เบอร์โทร: </label>
+      <input type="text" [(ngModel)]="telephone">
+    </div>
+    <div class="row">
+      <label>รายละเอียดกิจกรรม </label>
+      <input type="text" class="input-remark" [(ngModel)]="remark">
+    </div>
+  </div>
+
+  <div class="section__navigation">
+    <div class="navigation__box">
+      <input type="button" class="button button-save" value="บันทึก" (click)="Save()" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.section__list {
+  position: relative;
+  left: 2%;
+  margin-top: 10px;
+  width: 96%;
+  height: 520px;
+  text-align: center;
+}
+
+.header-location {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.header-location p {
+  margin-top: -30px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.detail-location {
+  position: relative;
+  padding-top: 10px;
+  width: 100%;
+
+  color: black;
+  font-size: 18px;
+  text-align: center;
+}
+
+ul {
+  text-align: left;
+  list-style: none;
+}
+
+.detail-location .location-remark {
+  margin-bottom: 20px;
+  color: red;
+  font-size: 20px;
+}
+
+.location-title {
+  margin-bottom: 10px;
+}
+
+.section__navigation {
+  position: relative;
+  left: 2%;
+  margin-top: 10px;
+  width: 96%;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  padding: 15px 50px;
+
+  color: white;
+  text-align: center;
+
+  background: #484646;
+  border: none;
+}
+
+.button-location {
+  width: 50%;
+  float: center;
+}
+
+.button-checkin {
+  float: center;
+}
+
+.button-checkon {
+  float: center;
+
+  background: #666666;
+}

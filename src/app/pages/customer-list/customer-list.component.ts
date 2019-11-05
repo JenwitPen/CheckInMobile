@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { CustomerService } from 'src/app/services/customer.service';
 import { CustomerResponseBody } from './../../services/interface/CustomerResponseBody';
 
@@ -9,51 +10,47 @@ import { CustomerResponseBody } from './../../services/interface/CustomerRespons
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
   wording: string = "";
 
   data: CustomerResponseBody[] = [];
 
-  constructor(private router: Router, private customerService: CustomerService) { }
+  constructor(
+    private router: Router,
+    private customerService: CustomerService) { }
 
   ngOnInit() {
-    this.GetCustomerList();
+    if (localStorage.getItem("eaid") == "") {
+      this.Logout();
+    }else {
+      this.GetCustomerList();
+    }
   }
 
   GetCustomerList() {
-    let eaid = localStorage.getItem("eaid");
+    this.wording = "";
 
-    this.customerService.Get(eaid).subscribe(
+    this.customerService.GetSelectCustomerList(localStorage.getItem("eaid")).subscribe(
       jsonObject => {
-        console.log(jsonObject);
+        this.data = <CustomerResponseBody[]>jsonObject;
+        console.log("Loading data Completed.");
       },
       error => {
-        this.data = [ {
-          address: "",
-          cardCode: "8400030675",
-          cardName: "โรงเรียนเจริญวิทยศึกษา",
-          county: "",
-          phone: "",
-          total: "1",
-          tripEaCustomerID: "84054",
-          tripEaID: "1943",
-          tripName: "สิงหาคม 2019",
-          customerType: "School"
-        }];
+        this.data = [];
+        console.log("Data not found !");
       }
     );
   }
 
+  GotoLocation() {
+    return this.router.navigate(['checkinlocation']);
+  }
+
+  GotoCheckinList(id: string) {
+    return this.router.navigate(['checkinlist'], { queryParams: { TripEAID: id } });
+  }
+
   Logout() {
     localStorage.clear();
-    return this.router.navigateByUrl("/");
-  }
-
-  GotoLocation() {
-    return this.router.navigateByUrl("/checkinlocation");
-  }
-
-  GotoCheckinList() {
-    return this.router.navigateByUrl("/checkinlist");
+    return this.router.navigate(['']);
   }
 }
